@@ -29,7 +29,10 @@ export class TodoApp extends LitElement {
                 @click=${() => this.onChange(item)}
                 .checked=${item.isDone}
               />
-              <button data-testid="remove" @click=${() => this.remove(item)}>
+              <button
+                data-testid="remove"
+                @click=${() => this.remove(item)}
+              >
                 X
               </button>
               ${item.title}
@@ -47,7 +50,7 @@ export class TodoApp extends LitElement {
     const newItem = data.get('newItem');
     form.reset();
 
-    this.todos = [...this.todos, {title: newItem, isDone: false}];
+    this.todos = [...this.todos, { title: newItem, isDone: false }];
   }
 
   remove(item) {

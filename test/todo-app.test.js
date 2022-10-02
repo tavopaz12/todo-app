@@ -36,20 +36,6 @@ describe('When the user wants add a new item', () => {
   });
 });
 
-describe('When the new item is added', () => {
-  it('Then the input is cleared', async () => {
-    const input = elemRoot.querySelector('[data-testid="newItem"]');
-    const btn = elemRoot.querySelector('[data-testid="add"]');
-
-    input.value = 'Cenar';
-    btn.click();
-
-    await elem.updateComplete;
-
-    expect(input.value).to.equal('');
-  });
-});
-
 describe('When the user wants add more than one items', () => {
   it('Then more than one items should be added', async () => {
     const input = elemRoot.querySelector('[data-testid="newItem"]');
@@ -70,6 +56,20 @@ describe('When the user wants add more than one items', () => {
 
     expect(todosContainer.textContent).to.contains('Cenar');
     expect(todosContainer.textContent).to.contains('Comer');
+  });
+});
+
+describe('When the new item is added', () => {
+  it('Then the input is cleared', async () => {
+    const input = elemRoot.querySelector('[data-testid="newItem"]');
+    const btn = elemRoot.querySelector('[data-testid="add"]');
+
+    input.value = 'Cenar';
+    btn.click();
+
+    await elem.updateComplete;
+
+    expect(input.value).to.equal('');
   });
 });
 
@@ -109,6 +109,11 @@ describe('When the user wants to mark the pending as finished', () => {
 
     await elem.updateComplete;
 
-    expect(check.checkValidity()).to.be.true;
+    expect(check.checked).to.be.true;
   });
 });
+
+// Lista de contactos
+
+// Publicar --
+// Registro --
